@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:front_exa2_helmerm/models/api_response.dart';
 import 'package:front_exa2_helmerm/models/titulares.dart';
 import 'package:flutter/material.dart';
@@ -65,6 +66,13 @@ class TitulosServices extends ChangeNotifier {
         body: titular.toJson(), headers: {"Content-Type": "application/json"});
     final decodedData = resp.body;
 
+    final index = this
+        .titular
+        .indexWhere((element) => element.idtitulares == titular.idtitulares);
+
+    this.titular[index] = titular;
+    this.showToatUpdate();
+
     return titular.idtitulares!;
   }
 
@@ -79,6 +87,7 @@ class TitulosServices extends ChangeNotifier {
         this.titular.indexWhere((element) => element.id == titulars.id);
 
     this.titular[index] = titulars;
+    this.showToatDelete();
 
     return titulars.id;
   }
@@ -90,6 +99,29 @@ class TitulosServices extends ChangeNotifier {
         body: titular.toJson(), headers: {"Content-Type": "application/json"});
     final decodedData = resp.body;
 
+    this.showToatCreate();
+
     return titular.idtitulares!;
   }
+
+  void showToatUpdate() => Fluttertoast.showToast(
+      msg: "Book has been updated successfully",
+      fontSize: 18,
+      gravity: ToastGravity.TOP,
+      backgroundColor: Colors.black38,
+      textColor: Colors.white);
+
+  void showToatCreate() => Fluttertoast.showToast(
+      msg: "Book has been created successfully",
+      fontSize: 18,
+      gravity: ToastGravity.TOP,
+      backgroundColor: Colors.black38,
+      textColor: Colors.white);
+
+  void showToatDelete() => Fluttertoast.showToast(
+      msg: "Book has been deleted successfully",
+      fontSize: 18,
+      gravity: ToastGravity.TOP,
+      backgroundColor: Colors.black38,
+      textColor: Colors.white);
 }

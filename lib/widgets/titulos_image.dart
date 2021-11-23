@@ -23,7 +23,7 @@ class TituloImage extends StatelessWidget {
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(40), topRight: Radius.circular(40)),
           child: Image(
-            image: AssetImage('assets/library.jpg'),
+            image: AssetImage('assets/librolentes.jpg'),
             fit: BoxFit.cover,
           ),
         ),

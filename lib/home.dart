@@ -14,16 +14,36 @@ class HomePage extends StatelessWidget {
     if (titulosService.isLoading) return ChargePage();
 
     return Scaffold(
-      appBar: AppBar(
-        title: Align(
-          alignment: Alignment.center,
-          child: Text(
-            'Library',
-            style: GoogleFonts.parisienne(
-                textStyle: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-            )),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(100),
+        child: AppBar(
+          flexibleSpace: ClipRRect(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(30),
+                bottomRight: Radius.circular(30)),
+            child: Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/library.jpg'),
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+          ),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(30),
+                  bottomRight: Radius.circular(30))),
+          title: Align(
+            alignment: Alignment.center,
+            child: Text(
+              'Library',
+              style: GoogleFonts.parisienne(
+                  textStyle: TextStyle(
+                fontSize: 60,
+                fontWeight: FontWeight.bold,
+              )),
+            ),
           ),
         ),
       ),
