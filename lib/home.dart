@@ -3,6 +3,7 @@ import 'package:front_exa2_helmerm/charge_page.dart';
 import 'package:front_exa2_helmerm/models/titulares.dart';
 import 'package:front_exa2_helmerm/services/titulos_services.dart';
 import 'package:front_exa2_helmerm/widgets/titulo_card.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,7 +15,17 @@ class HomePage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Page'),
+        title: Align(
+          alignment: Alignment.center,
+          child: Text(
+            'Library',
+            style: GoogleFonts.parisienne(
+                textStyle: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+            )),
+          ),
+        ),
       ),
       body: ListView.builder(
         itemCount: titulosService.titular.length,
@@ -29,7 +40,7 @@ class HomePage extends StatelessWidget {
             )),
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.purple,
+        backgroundColor: Color.fromRGBO(255, 87, 51, 1),
         child: Icon(Icons.add),
         onPressed: () {
           titulosService.selectedTitular =

@@ -9,11 +9,11 @@ class TituloCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: 15),
       child: Container(
-        margin: EdgeInsets.only(top: 20, bottom: 30),
+        margin: EdgeInsets.only(top: 10, bottom: 10),
         width: double.infinity,
-        height: 170,
+        height: 80,
         decoration: _cardBorders(),
         child: Stack(
           alignment: Alignment.bottomLeft,
@@ -29,7 +29,7 @@ class TituloCard extends StatelessWidget {
 
   BoxDecoration _cardBorders() => BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(25),
+          borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
                 color: Colors.black12, offset: Offset(0, 6), blurRadius: 10)
@@ -43,17 +43,19 @@ class _Titulo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       child: Text(
         titulo,
-        style: TextStyle(color: Colors.white, fontSize: 25),
+        style: TextStyle(
+            color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
       ),
       width: 100,
-      height: 70,
-      alignment: Alignment.center,
+      height: 40,
+      alignment: Alignment.centerRight,
       decoration: BoxDecoration(
-        color: Colors.purple,
+        color: Colors.white,
         borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(25), topRight: Radius.circular(25)),
+            topLeft: Radius.circular(10), topRight: Radius.circular(10)),
       ),
     );
   }
@@ -69,7 +71,7 @@ class _TituloDescription extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       width: double.infinity,
-      height: 70,
+      height: 40,
       decoration: _buildBoxDecoration(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,7 +79,7 @@ class _TituloDescription extends StatelessWidget {
           Text(
             descripcion,
             style: TextStyle(
-                fontSize: 18,
+                fontSize: 15,
                 color: Colors.black,
                 fontWeight: FontWeight.normal),
             maxLines: 1,
@@ -90,6 +92,7 @@ class _TituloDescription extends StatelessWidget {
 
   BoxDecoration _buildBoxDecoration() => BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(25),
+        borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
       );
 }

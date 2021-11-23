@@ -45,7 +45,7 @@ class _TitulosPageBody extends StatelessWidget {
                       icon: Icon(
                         Icons.arrow_back,
                         size: 40,
-                        color: Colors.black54,
+                        color: Colors.white,
                       ),
                     )),
                 Positioned(
@@ -55,11 +55,12 @@ class _TitulosPageBody extends StatelessWidget {
                       onPressed: () {
                         //borrar
                         titulosService.deleteTitulo(titularForm.titular);
+                        Navigator.pushReplacementNamed(context, 'home');
                       },
                       icon: Icon(
                         Icons.delete_outline,
                         size: 40,
-                        color: Colors.black54,
+                        color: Colors.white,
                       ),
                     ))
               ],
@@ -73,7 +74,7 @@ class _TitulosPageBody extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.purple,
+        backgroundColor: Color.fromRGBO(255, 87, 51, 1),
         child: Icon(
           Icons.save_outlined,
         ),
